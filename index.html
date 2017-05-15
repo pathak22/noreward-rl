@@ -1,0 +1,265 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+<script type="text/javascript">google.load("jquery", "1.3.2");</script>
+
+<style type="text/css">
+  body {
+    font-family: "Titillium Web","HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight:300;
+    font-size:18px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1100px;
+  }
+
+  h1 {
+    font-weight:300;
+  }
+
+  .disclaimerbox {
+    background-color: #eee;
+    border: 1px solid #eeeeee;
+    border-radius: 10px ;
+    -moz-border-radius: 10px ;
+    -webkit-border-radius: 10px ;
+    padding: 20px;
+  }
+
+  video.header-vid {
+    height: 140px;
+    border: 1px solid black;
+    border-radius: 10px ;
+    -moz-border-radius: 10px ;
+    -webkit-border-radius: 10px ;
+  }
+
+  img.header-img {
+    height: 140px;
+    border: 1px solid black;
+    border-radius: 10px ;
+    -moz-border-radius: 10px ;
+    -webkit-border-radius: 10px ;
+  }
+
+  img.rounded {
+    border: 1px solid #eeeeee;
+    border-radius: 10px ;
+    -moz-border-radius: 10px ;
+    -webkit-border-radius: 10px ;
+  }
+
+  a:link,a:visited
+  {
+    color: #1367a7;
+    text-decoration: none;
+  }
+  a:hover {
+    color: #208799;
+  }
+
+  td.dl-link {
+    height: 160px;
+    text-align: center;
+    font-size: 22px;
+  }
+
+  .layered-paper-big { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+    box-shadow:
+            0px 0px 1px 1px rgba(0,0,0,0.35), /* The top layer shadow */
+            5px 5px 0 0px #fff, /* The second layer */
+            5px 5px 1px 1px rgba(0,0,0,0.35), /* The second layer shadow */
+            10px 10px 0 0px #fff, /* The third layer */
+            10px 10px 1px 1px rgba(0,0,0,0.35), /* The third layer shadow */
+            15px 15px 0 0px #fff, /* The fourth layer */
+            15px 15px 1px 1px rgba(0,0,0,0.35), /* The fourth layer shadow */
+            20px 20px 0 0px #fff, /* The fifth layer */
+            20px 20px 1px 1px rgba(0,0,0,0.35), /* The fifth layer shadow */
+            25px 25px 0 0px #fff, /* The fifth layer */
+            25px 25px 1px 1px rgba(0,0,0,0.35); /* The fifth layer shadow */
+    margin-left: 10px;
+    margin-right: 45px;
+  }
+
+
+  .layered-paper { /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+    box-shadow:
+            0px 0px 1px 1px rgba(0,0,0,0.35), /* The top layer shadow */
+            5px 5px 0 0px #fff, /* The second layer */
+            5px 5px 1px 1px rgba(0,0,0,0.35), /* The second layer shadow */
+            10px 10px 0 0px #fff, /* The third layer */
+            10px 10px 1px 1px rgba(0,0,0,0.35); /* The third layer shadow */
+    margin-top: 5px;
+    margin-left: 10px;
+    margin-right: 30px;
+    margin-bottom: 5px;
+  }
+
+  .vert-cent {
+    position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+  }
+
+  hr
+  {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+  }
+</style>
+<script type="text/javascript" src="resources/hidebib.js"></script>
+<link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,600,400italic,600italic,300,300italic' rel='stylesheet' type='text/css'>
+  <head>
+    <link rel="icon" type="image/png" href="resources/seal_icon.png">
+    <title>Curiosity-driven Exploration by Self-supervised Prediction</title>
+    <meta property='og:url' content='https://www.youtube.com/watch?v=J3FHOyhUn3A' />
+    <meta property="og:description" content="Pathak, Agrawal, Efros, Darrell. Curiosity-driven Exploration by Self-supervised Prediction. In ICML, 2017." />
+  </head>
+
+  <body>
+        <br>
+        <center><span style="font-size:46px;font-weight:bold;">Curiosity-driven Exploration by <br/> Self-supervised Prediction</span></center>
+
+        <table align=center width=800px>
+          <tr>
+            <td align=center width=150px>
+            <center><span style="font-size:24px"><a href="https://people.eecs.berkeley.edu/~pathak/" target="_blank">Deepak Pathak</a></span></center></td>
+            <td align=center width=150px>
+            <center><span style="font-size:24px"><a href="https://people.eecs.berkeley.edu/~pulkitag/" target="_blank">Pulkit Agrawal</a></span></center></td>
+            <td align=center width=150px>
+            <center><span style="font-size:24px"><a href="https://people.eecs.berkeley.edu/~efros/" target="_blank">Alexei A. Efros</a></span></center></td>
+            <td align=center width=150px>
+            <center><span style="font-size:24px"><a href="https://people.eecs.berkeley.edu/~trevor/" target="_blank">Trevor Darrell</a></span></center></td>
+          <tr/>
+         </table>
+        <table align=center width=600px>
+          <tr>
+            <td align=center width=600px><center><span style="font-size:24px">University of California, Berkeley</span></center></td>
+          <tr/>
+        </table>
+        <table align=center width=400px>
+          <tr>
+            <td align=center width=150px>
+            <center><span style="font-size:24px"><a href="https://2017.icml.cc/" target="_blank">ICML 2017</a></span></center></td>
+          <tr/>
+        </table><br/>
+        <table align=center width=500px>
+          <tr>
+            <td align=center width=200px><center><span style="font-size:24px"><a href="resources/icml17.pdf">[Download Paper]</a></span></center></td>
+            <td align=center width=200px><center><span style="font-size:24px"><a href='https://github.com/pathak22/noreward_rl'>[Github Code]</a></span></center></td>
+          <tr/>
+        </table><br/>
+
+        <table align=center width=1000px>
+          <tr><td width=1000px>
+            <center><a href="resources/overview.jpg"><img src = "resources/overview.jpg" height="400px"></img></a><br></center>
+          </td></tr>
+        </table>
+
+        <br>
+
+        In many real-world scenarios, rewards extrinsic to the agent are extremely sparse, or absent altogether. In such cases, curiosity can serve as an intrinsic reward signal to enable the agent to explore its environment and learn skills that might be useful later in its life. We formulate curiosity as the error in an agent's ability to predict the consequence of its own actions in a visual feature space learned by a self-supervised inverse dynamics model. Our formulation scales to high-dimensional continuous state spaces like images, bypasses the difficulties of directly predicting pixels, and, critically, ignores the aspects of the environment that cannot affect the agent. The proposed approach is evaluated in two environments: <i>VizDoom</i> and <i>Super Mario Bros</i>. Three broad settings are investigated: 1) sparse extrinsic reward, where curiosity allows for far fewer interactions with the environment to reach the goal; 2) exploration with no extrinsic reward, where curiosity pushes the agent to explore more efficiently; and 3) generalization to unseen scenarios (e.g. new levels of the same game) where the knowledge gained from earlier experience helps the agent explore new places much faster than starting from scratch.
+
+      <br>
+      <br>
+      <hr>
+
+        <center id="demoVideo"><h1>Demo Video</h1></center>
+          <table align=center width=600px>
+            <tr><td align=center width=600px>
+            <iframe width="800" height="450" src="https://www.youtube.com/embed/J3FHOyhUn3A" frameborder="0" allowfullscreen></iframe>
+            </td></tr>
+          </table>
+
+      <br>
+      <hr>
+
+        <center id="sourceCode"><h1>Source Code and Demo</h1></center>
+        <center>We are releasing demo on the github webpage. It has been built upon TensorFlow and OpenAI Gym. Check out !</center>
+        <table align=center width=900px>
+        <tr>
+          <!-- <p style="margin-top:4px;"></p> -->
+          <td width=300px align=center>
+            <span style="font-size:34px"><a href='https://github.com/pathak22/noreward_rl'>[GitHub]</a></span>
+          </td>
+        </tr>
+        </table>
+
+      <br>
+      <hr>
+
+        <center id="sourceCode"><h1>Intrinsic Curiosity Module (ICM)</h1></center>
+        <center>We propose intrinsic curiosity formulation to help agent exploration. Curiosity help agent discover the environment out of curioisty when extrinisc rewards are spare or not present at all. Our proposed intrinsic model (ICM) is learned jointly with agent's policy even without any rewards from the environment. A glimpse of our model is shown in figure below. For more details, refer to the <a href="resources/icml17.pdf">paper</a>.</center>
+        <table align=center width=1000px>
+          <p style="margin-top:4px;"></p>
+          <tr><td width=1000px>
+            <center><a href="resources/method.jpg"><img src = "resources/method.jpg" height="350px"></img></a><br></center>
+          </td></tr>
+        </table>
+        <br/>
+
+      <br>
+      <hr>
+
+        <table align=center width=850px>
+          <center><h1>Paper</h1></center>
+          <tr>
+          <td width=400px align=left>
+          <!-- <p style="margin-top:4px;"></p> -->
+          <a href="resources/icml17.pdf"><img style="height:200px" src="resources/icml17_thumbnail.png"/></a>
+          <center>
+          <span style="font-size:20pt"><a href="resources/icml17.pdf">[Paper 2MB]</a>&nbsp;
+          <span style="font-size:20pt"><a href="https://arxiv.org/abs/0000.00000">[arXiv]</a>
+          </center>
+          </td>
+          <td width=50px align=center>
+          </td>
+          <td width=450px align=left>
+          <!-- <p style="margin-top:4px;"></p> -->
+          <p style="text-align:left;"><b><span style="font-size:20pt">Citation</span></b><br/><span style="font-size:6px;">&nbsp;<br/></span> <span style="font-size:15pt">Deepak Pathak, Pulkit Agrawal, Alexei A. Efros and Trevor Darrell. <b>Curiosity-driven Exploration by Self-supervised Prediction.<br/></b> In <i>ICML 2017</i>.</span></p>
+          <!-- <p style="margin-top:20px;"></p> -->
+          <span style="font-size:20pt"><a shape="rect" href="javascript:togglebib('icml17_bib')" class="togglebib">[Bibtex]</a></span>
+          </td>
+          </tr>
+          <tr>
+          <td width=350px align=left>
+          </td>
+          <td width=100px align=center>
+          </td>
+          <td width=450px align=left>
+            <div class="paper" id="icml17_bib">
+<pre xml:space="preserve">@inproceedings{pathakICMl17curiosity,
+    Author = {Pathak, Deepak and
+    Agrawal, Pulkit and
+    Efros, Alexei A. and
+    Darrell, Trevor},
+    Title = {Curiosity-driven Exploration
+    by Self-supervised Prediction},
+    Booktitle = {ICML},
+    Year = {2017}
+}</pre>
+            </div>
+            </td>
+            </tr>
+        </table>
+
+      <br>
+      <hr>
+      <br>
+
+      <table align=center width=800px>
+        <tr><td width=800px><left>
+        <center><h1>Acknowledgements</h1></center>
+        We would like to thank Sergey Levine, Evan Shelhamer, Saurabh Gupta, Phillip Isola and other members of the BAIR lab for fruitful discussions and comments. We thank Jacob Huh for help with Figure-2 and Alexey Dosovitskiy for VizDoom maps. This work was supported in part by NSF IIS-1212798, IIS-1427425, IIS-1536003, IIS-1633310, ONR MURI N00014-14-1-0671, Berkeley DeepDrive, equipment grant from Nvidia, and the Valrhona Reinforcement Learning Fellowship.
+        </left></td></tr>
+      </table>
+
+    <br><br>
+<script xml:space="preserve" language="JavaScript">
+hideallbibs();
+</script>
+</body>
+</html>
+
