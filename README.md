@@ -18,6 +18,8 @@ This is the code for our [ICML 2017 paper on curiosity-driven exploration for re
 
 ### 1) Running demo
 
+[To be released very soon. Stay tuned !]
+
 1. Install required packages in the virtual environment including Tensorflow 0.12:
   ```Shell
   cd noreward-rl/
@@ -41,4 +43,4 @@ This is the code for our [ICML 2017 paper on curiosity-driven exploration for re
 
 ### 2) Training code
 
-Coming soon. Stay tuned !
+[To be released soon. Stay tuned !]
