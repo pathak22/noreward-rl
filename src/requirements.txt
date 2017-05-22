@@ -1,0 +1,19 @@
+appdirs==1.4.3
+doom-py==0.0.15
+funcsigs==1.0.2
+-e git+https://github.com/openai/gym.git@c16f6c8a233324422d4faccb391d32363ef6f36e#egg=gym
+-e git+https://github.com/ppaquette/gym-pull.git@5b2797fd081ba5be26544983d1eba764e6d9f73b#egg=gym_pull
+mock==2.0.0
+numpy==1.12.1
+olefile==0.44
+packaging==16.8
+pbr==3.0.1
+Pillow==4.1.1
+pkg-resources==0.0.0
+ppaquette-gym-doom==0.0.6
+protobuf==3.1.0
+pyglet==1.2.4
+pyparsing==2.2.0
+requests==2.14.2
+six==1.10.0
+tensorflow==0.12.0rc1
