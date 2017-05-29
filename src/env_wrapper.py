@@ -56,7 +56,8 @@ class BufferedObsEnv(gym.ObservationWrapper):
         for _ in range(self.n - 1):
             self.buffer.append(np.zeros_like(obs))
         self.buffer.append(obs)
-        return np.stack(self.buffer, axis=self.ch_axis)
+        obsNew = np.stack(self.buffer, axis=self.ch_axis) 
+        return obsNew.astype(np.float32) * self.scale
 
     def _convert(self, obs):
         self.obs_buffer.append(obs)
