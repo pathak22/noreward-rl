@@ -5,26 +5,9 @@ import gym
 import numpy as np
 import argparse
 import logging
+from envs import create_env
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
-
-def create_doom(record=False, outdir=None):
-    from ppaquette_gym_doom import wrappers
-    import env_wrapper
-    env = gym.make('ppaquette/DoomMyWayHome-v0')
-    modewrapper = wrappers.SetPlayingMode('algo')
-    obwrapper = wrappers.SetResolution('160x120')
-    acwrapper = wrappers.ToDiscrete('minimal')
-    env = modewrapper(obwrapper(acwrapper(env)))
-
-    if record:
-        env = gym.wrappers.Monitor(env, outdir, force=True)
-    fshape = (42, 42)
-
-    env.seed(None)
-    env = env_wrapper.NoNegativeRewardEnv(env)
-    env = env_wrapper.BufferedObsEnv(env, skip=1, shape=fshape)
-    return env
 
 
 def inference(args):
@@ -32,7 +15,8 @@ def inference(args):
     It restore policy weights, and does inference.
     """
     # define environment
-    env = create_doom(args.record, outdir=args.outdir)
+    env = create_env(args.env_id, client_id='0', remotes=None, envWrap=True,
+                        acRepeat=1, record=args.record, outdir=args.outdir)
     numaction = env.action_space.n
 
     with tf.device("/cpu:0"):

@@ -5,7 +5,7 @@ cd $DIR
 
 FILE=models.tar.gz
 URL=https://people.eecs.berkeley.edu/~pathak/noreward-rl/resources/$FILE
-CHECKSUM=fbf57709e4949f93fb857c945e5a2c70
+CHECKSUM=af81cbf1961a13b66daa3d801e219680
 
 if [ ! -f $FILE ]; then
   echo "Downloading the curiosity-driven RL trained models (6MB)..."
