@@ -278,8 +278,12 @@ class StateActionPredictor(object):
         g = tf.nn.relu(linear(g, size, "g1", normalized_columns_initializer(0.01)))
         aindex = tf.argmax(asample, axis=1)  # aindex: [batch_size,]
         logits = linear(g, ac_space, "glast", normalized_columns_initializer(0.01))
-        self.invloss = tf.reduce_mean(tf.nn.sparse_softmax_cross_entropy_with_logits(
-                                        logits=logits, labels=aindex), name="invloss")
+        try:
+            self.invloss = tf.reduce_mean(tf.nn.sparse_softmax_cross_entropy_with_logits(
+                                            logits, aindex), name="invloss")
+        except ValueError:
+            self.invloss = tf.reduce_mean(tf.nn.sparse_softmax_cross_entropy_with_logits(
+                                            logits=logits, labels=aindex), name="invloss")
         self.ainvprobs = tf.nn.softmax(logits, dim=-1)
 
         # forward model: f(phi1,asample) -> phi2
