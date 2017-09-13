@@ -45,6 +45,7 @@ This is a tensorflow based implementation for our [ICML 2017 paper on curiosity-
   ```Shell
   cd noreward-rl/src/
   python demo.py --ckpt ../models/doom/doom_ICM
+  python demo.py --env-id SuperMarioBros-1-1-v0 --ckpt ../models/mario/mario_ICM
   ```
 
 3. Training code
