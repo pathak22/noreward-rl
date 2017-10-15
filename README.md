@@ -51,10 +51,16 @@ This is a tensorflow based implementation for our [ICML 2017 paper on curiosity-
 3. Training code
   ```Shell
   cd noreward-rl/src/
-  python train.py --default --env-id doom  # or doomSparse or doomVerySparse
+  # For Doom: doom or doomSparse or doomVerySparse
+  python train.py --default --env-id doom
+
+  # For Mario, change src/constants.py as follows:
+  # PREDICTION_BETA = 0.2
+  # ENTROPY_BETA = 0.0005
   python train.py --default --env-id mario --noReward
 
   xvfb-run -s "-screen 0 1400x900x24" bash  # only for remote desktops
+  # useful xvfb link: http://stackoverflow.com/a/30336424
   python inference.py --default --env-id doom --record
   ```
 
