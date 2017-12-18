@@ -22,7 +22,8 @@ This is a tensorflow based implementation for our [ICML 2017 paper on curiosity-
   # you might not need many of these, e.g., fceux is only for mario
   sudo apt-get install -y python-numpy python-dev cmake zlib1g-dev libjpeg-dev xvfb \
   libav-tools xorg-dev python-opengl libboost-all-dev libsdl2-dev swig python3-dev \
-  python3-venv make golang libjpeg-turbo8-dev gcc wget unzip git fceux virtualenv
+  python3-venv make golang libjpeg-turbo8-dev gcc wget unzip git fceux virtualenv \
+  tmux
 
   # install the code
   git clone -b master --single-branch https://github.com/pathak22/noreward-rl.git
