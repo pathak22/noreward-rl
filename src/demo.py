@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 from __future__ import print_function
+import go_vncdriver
 import tensorflow as tf
 import gym
 import numpy as np

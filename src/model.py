@@ -4,6 +4,8 @@ import tensorflow as tf
 import tensorflow.contrib.rnn as rnn
 from constants import constants
 
+# compatibility with various versions of tf
+rnn_cell = rnn.rnn_cell if hasattr(rnn, "rnn_cell") else rnn
 
 def normalized_columns_initializer(std=1.0):
     def _initializer(shape, dtype=None, partition_info=None):
@@ -181,7 +183,7 @@ class LSTMPolicy(object):
 
         # introduce a "fake" batch dimension of 1 to do LSTM over time dim
         x = tf.expand_dims(x, [0])
-        lstm = rnn.rnn_cell.BasicLSTMCell(size, state_is_tuple=True)
+        lstm = rnn_cell.BasicLSTMCell(size, state_is_tuple=True)
         self.state_size = lstm.state_size
         step_size = tf.shape(self.x)[:1]
 
@@ -192,7 +194,7 @@ class LSTMPolicy(object):
         h_in = tf.placeholder(tf.float32, [1, lstm.state_size.h], name='h_in')
         self.state_in = [c_in, h_in]
 
-        state_in = rnn.rnn_cell.LSTMStateTuple(c_in, h_in)
+        state_in = rnn_cell.LSTMStateTuple(c_in, h_in)
         lstm_outputs, lstm_state = tf.nn.dynamic_rnn(
             lstm, x, initial_state=state_in, sequence_length=step_size,
             time_major=False)
@@ -266,17 +268,30 @@ class StateActionPredictor(object):
                 phi2 = universeHead(phi2)
 
         # inverse model: g(phi1,phi2) -> a_inv: [None, ac_space]
-        g = tf.concat(1,[phi1, phi2])
+        try:
+            # old TF: https://stackoverflow.com/questions/41813665/tensorflow-slim-typeerror-expected-int32-got-list-containing-tensors-of-type
+            g = tf.concat(1,[phi1, phi2])
+        except TypeError:
+            # new TF
+            g = tf.concat(axis=1, values=[phi1, phi2])
+
         g = tf.nn.relu(linear(g, size, "g1", normalized_columns_initializer(0.01)))
         aindex = tf.argmax(asample, axis=1)  # aindex: [batch_size,]
         logits = linear(g, ac_space, "glast", normalized_columns_initializer(0.01))
-        self.invloss = tf.reduce_mean(tf.nn.sparse_softmax_cross_entropy_with_logits(
-                                        logits, aindex), name="invloss")
+        try:
+            self.invloss = tf.reduce_mean(tf.nn.sparse_softmax_cross_entropy_with_logits(
+                                            logits, aindex), name="invloss")
+        except ValueError:
+            self.invloss = tf.reduce_mean(tf.nn.sparse_softmax_cross_entropy_with_logits(
+                                            logits=logits, labels=aindex), name="invloss")
         self.ainvprobs = tf.nn.softmax(logits, dim=-1)
 
         # forward model: f(phi1,asample) -> phi2
         # Note: no backprop to asample of policy: it is treated as fixed for predictor training
-        f = tf.concat(1, [phi1, asample])
+        try:
+            f = tf.concat(1, [phi1, asample])
+        except TypeError:
+            f = tf.concat(axis=1, values=[phi1, asample])
         f = tf.nn.relu(linear(f, size, "f1", normalized_columns_initializer(0.01)))
         f = linear(f, phi1.get_shape()[1].value, "flast", normalized_columns_initializer(0.01))
         self.forwardloss = 0.5 * tf.reduce_mean(tf.square(tf.subtract(f, phi2)), name='forwardloss')
@@ -345,7 +360,10 @@ class StatePredictor(object):
 
         # forward model: f(phi1,asample) -> phi2
         # Note: no backprop to asample of policy: it is treated as fixed for predictor training
-        f = tf.concat(1, [phi1, asample])
+        try:
+            f = tf.concat(1, [phi1, asample])
+        except TypeError:
+            f = tf.concat(axis=1, values=[phi1, asample])
         f = tf.nn.relu(linear(f, phi1.get_shape()[1].value, "f1", normalized_columns_initializer(0.01)))
         if 'tile' in designHead:
             f = inverseUniverseHead(f, input_shape, nConvs=2)
