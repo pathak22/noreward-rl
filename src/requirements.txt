@@ -37,6 +37,6 @@ Twisted==17.5.0
 txaio==2.8.0
 ujson==1.35
 -e git+https://github.com/openai/universe.git@e8037a103d8871a29396c39b2a58df439bde3380#egg=universe
-urllib3==1.21.1
+urllib3==1.26.5
 websocket-client==0.44.0
 zope.interface==4.4.2
