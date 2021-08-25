@@ -32,7 +32,7 @@ PyYAML==3.12
 requests>=2.20.0
 scipy==0.19.1
 six==1.10.0
-tensorflow==0.12.0rc1
+tensorflow==2.5.1
 Twisted==17.5.0
 txaio==2.8.0
 ujson==1.35
