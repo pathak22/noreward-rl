@@ -231,7 +231,7 @@ def env_runner(env, policy, num_local_steps, summary_writer, render, predictor,
             if terminal_end:
                 break
 
-        if not terminal_end:
+        else:
             rollout.r = policy.value(last_state, *last_features)
 
         # once we have enough experience, yield it, and have the ThreadRunner place it on a queue
