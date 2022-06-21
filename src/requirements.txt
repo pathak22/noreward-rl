@@ -19,7 +19,7 @@ idna==2.5
 incremental==17.5.0
 ipaddress==1.0.18
 mock==2.0.0
-numpy==1.13.1
+numpy==1.22.0
 olefile==0.44
 pbr==3.1.1
 Pillow==4.2.1
