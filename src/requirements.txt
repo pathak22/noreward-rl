@@ -25,7 +25,7 @@ pbr==3.1.1
 Pillow==4.2.1
 ppaquette-gym-doom==0.0.3
 -e git+https://github.com/ppaquette/gym-super-mario.git@2e5ee823b6090af3f99b1f62c465fc4b033532f4#egg=ppaquette_gym_super_mario
-protobuf==3.1.0
+protobuf==3.18.3
 pyglet==1.2.4
 PyOpenGL==3.1.0
 PyYAML==3.12
