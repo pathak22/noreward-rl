@@ -3,7 +3,7 @@ attrs==17.2.0
 autobahn==17.6.2
 Automat==0.6.0
 backports.ssl-match-hostname==3.5.0.1
-certifi==2017.4.17
+certifi==2022.12.7
 chardet==3.0.4
 constantly==15.1.0
 docker-py==1.10.3
